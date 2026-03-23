@@ -144,6 +144,8 @@ Use these names in messages:
 | Librarian | `FROM/TO: Librarian` |
 | Transcriber | `FROM/TO: Transcriber` |
 | Postman | `FROM/TO: Postman` |
+| Food Coach | `FROM/TO: Food Coach` |
+| Containing Mind | `FROM/TO: Containing Mind` |
 
 ---
 
@@ -171,6 +173,21 @@ Use these names in messages:
 **Subject**: No area for "Personal Finance" notes
 
 **Resolution**: Created `02-Areas/Personal Finance/` with index.md and `MOC/Personal Finance.md`. Tag taxonomy updated with `#area/personal-finance`. Notes in `03-Resources/Finance/` can be moved by the Sorter in the next session.
+```
+
+### Example 3: Food Coach -> Containing Mind (cross-domain)
+
+```markdown
+## [pending] [2026-03-20] FROM: Food Coach -> TO: Containing Mind
+**Subject**: Possible stress-eating pattern detected
+
+**Context**: During a meal logging session, the user reported eating a large unplanned meal and explicitly connected it to work stress ("I was so stressed about the deadline").
+
+**Problem**: This is the second time this week the user has reported stress-driven eating. This may indicate a pattern worth exploring from a psychological perspective.
+
+**My Proposed Solution**: In your next session with the user, consider exploring the connection between work stress and eating patterns. ACT-based strategies for sitting with discomfort without turning to food might be helpful.
+
+**Impact if unresolved**: I provided supportive, non-judgmental guidance and a concrete plan for tomorrow's meals. I did not attempt to address the emotional component — that's your domain.
 ```
 
 ---

@@ -4,15 +4,15 @@
 
 ## ABSOLUTE CONSTRAINT: ONLY agents from THIS project
 
-Your 8 agents are auto-loaded from `.claude/agents/` at session start. Claude Code already knows them — it reads their `description` field and full system prompt.
+Your 10 agents are auto-loaded from `.claude/agents/` at session start. Claude Code already knows them — it reads their `description` field and full system prompt.
 
-The ONLY agents you may use are these 8:
+The ONLY agents you may use are these 10:
 
-`architect`, `scribe`, `sorter`, `seeker`, `connector`, `librarian`, `transcriber`, `postman`
+`architect`, `scribe`, `sorter`, `seeker`, `connector`, `librarian`, `transcriber`, `postman`, `food-coach`, `containing-mind`
 
 **NEVER USE:**
 - External plugins, third-party tools, skills, or MCP servers not defined here
-- Any agent, plugin, or system that is not one of the 8 listed above
+- Any agent, plugin, or system that is not one of the 10 listed above
 - If something is not defined in this project's files, **IT DOES NOT EXIST**
 
 ## How to delegate
@@ -33,18 +33,53 @@ When a message matches multiple agents, activate the one with the highest priori
 
 | # | Agent/Skill | When to activate |
 |---|-------------|-----------------|
-| 1 | **postman** | Email, calendar, events, deadlines, Gmail, Google Calendar |
-| 2 | **transcriber** | Audio, recordings, transcriptions, meetings |
-| 3 | **scribe** | Text capture, notes, ideas, thoughts, to-dos, brainstorming, gratitude |
-| 4 | **seeker** | Vault search, questions about notes, "find", "where did I put" |
-| 5 | **architect** | Vault structure, areas, templates, MOCs, tags, defrag, onboarding |
-| 6 | **sorter** | Inbox triage, filing, note sorting |
-| 7 | **connector** | Links between notes, graph, MOCs, relationships, cross-linking |
-| 8 | **librarian** | Maintenance, duplicates, broken links, audit, cleanup |
+| 1 | **containing-mind** | Emotional distress of ANY kind — see special rules below |
+| 2 | **food-coach** | Food, diet, nutrition, weight, groceries, meals, calories |
+| 3 | **postman** | Email, calendar, events, deadlines, Gmail, Google Calendar |
+| 4 | **transcriber** | Audio, recordings, transcriptions, meetings |
+| 5 | **scribe** | Text capture, notes, ideas, thoughts, to-dos, brainstorming, gratitude |
+| 6 | **seeker** | Vault search, questions about notes, "find", "where did I put" |
+| 7 | **architect** | Vault structure, areas, templates, MOCs, tags, defrag, onboarding |
+| 8 | **sorter** | Inbox triage, filing, note sorting |
+| 9 | **connector** | Links between notes, graph, MOCs, relationships, cross-linking |
+| 10 | **librarian** | Maintenance, duplicates, broken links, audit, cleanup |
 
 ---
 
-## 1. POSTMAN
+## 1. CONTAINING MIND — SPECIAL RULES (ABSOLUTE PRIORITY)
+
+**THIS IS THE MOST IMPORTANT RULE IN THE ENTIRE SYSTEM.**
+
+The Containing Mind MUST be activated for ANY emotional distress, even implicit. The user will almost NEVER ask for emotional help explicitly. They will vent, complain, describe pain. YOU must recognize it and delegate IMMEDIATELY.
+
+### Explicit triggers
+"I have anxiety", "burnout", "I'm ruminating", "negative thoughts", "I'm afraid of", "I don't feel well", "stress", "crisis", "I can't sleep", "I feel overwhelmed", "I need to talk", "therapy", "mindfulness", "intrusive thoughts", "I had a fight", "imposter syndrome", "feeling down", "morning check-in", "gratitude"
+
+### Implicit triggers (EQUALLY IMPORTANT — DO NOT IGNORE THEM)
+- **Frustration**: "this sucks", "I can't take it anymore", "I'm done", "enough", "I'm sick of this", "what a crappy life", "I can't deal with this"
+- **Fear of the future**: "I'm afraid of living like this", "will it always be like this", "it will never change", "what if it doesn't get better?"
+- **Physical pain + emotionality**: physical pain described with a desperate or frustrated tone, chronic pain + impact on daily life, "I feel terrible", "everything hurts", complaints about pain with emotional charge
+- **Loneliness/rootlessness**: "I'm alone", "I miss home", "I don't know anyone here", feeling out of place, painful nostalgia
+- **Helplessness/surrender**: "it's useless", "nothing will change", "there's nothing I can do", "I want to give up on everything", "what's the point"
+- **Any message mixing a practical problem with visible emotional suffering**
+- **Any complaint about chronic pain with frustration, fear, or despair**
+
+### GOLDEN RULE
+**Do NOT respond yourself with empathy. Do NOT say "I'm sorry" or "I understand". DELEGATE. When in doubt, DELEGATE. Better to activate the Containing Mind one time too many than to miss a vent. If the message contains EVEN A HINT of emotional distress, delegate to the Containing Mind BEFORE anything else.**
+
+---
+
+## 2. FOOD COACH
+
+Activate when the message is about food, nutrition, diet, or dietary physical health.
+
+Triggers: "what can I eat", "help me with groceries", "what should I cook today", "track my weight", "I ate", "diet", "grocery list", "what should I avoid", "diet progress", "motivate me", "I cheated on my diet", "how many calories", "I feel guilty about what I ate", "weekly menu", "restaurant mode", "meal prep", "pantry audit", "what's in season", "what do I eat this week"
+
+**Note:** if the message contains food-related guilt with strong emotional charge ("I hate myself for what I ate", "I'll never manage to lose weight"), activate the Containing Mind FIRST, THEN the Food Coach.
+
+---
+
+## 3. POSTMAN
 
 Activate for any email or calendar interaction.
 
@@ -52,7 +87,7 @@ Triggers: "check my email", "what's in my inbox", "save important emails", "impo
 
 ---
 
-## 2. TRANSCRIBER
+## 4. TRANSCRIBER
 
 Activate for any audio content or transcriptions.
 
@@ -60,7 +95,7 @@ Triggers: "transcribe", "I have a recording", "transcription", "I recorded a mee
 
 ---
 
-## 3. SCRIBE
+## 5. SCRIBE
 
 Activate when the user wants to capture/save information to the vault.
 
@@ -70,7 +105,7 @@ Also activate when the user pastes unstructured text, does speech-to-text, or du
 
 ---
 
-## 4. SEEKER
+## 6. SEEKER
 
 Activate for any search or question about vault content.
 
@@ -78,7 +113,7 @@ Triggers: "search the vault", "find", "where did I put", "what notes do I have o
 
 ---
 
-## 5. ARCHITECT
+## 7. ARCHITECT
 
 Activate for any vault structure operation.
 
@@ -88,7 +123,7 @@ Also activate: on first setup; when another agent reports missing structure; whe
 
 ---
 
-## 6. SORTER
+## 8. SORTER
 
 Activate for sorting and filing notes from the Inbox.
 
@@ -96,7 +131,7 @@ Triggers: "triage the inbox", "clean up the inbox", "sort my notes", "empty inbo
 
 ---
 
-## 7. CONNECTOR
+## 9. CONNECTOR
 
 Activate for link analysis and knowledge graph work.
 
@@ -104,7 +139,7 @@ Triggers: "connect the notes", "find connections", "improve the graph", "what co
 
 ---
 
-## 8. LIBRARIAN
+## 10. LIBRARIAN
 
 Activate for maintenance, quality, and vault integrity.
 
@@ -116,10 +151,13 @@ Triggers: "weekly review", "check the vault", "maintenance", "are there duplicat
 
 Sometimes a message requires more than one agent. Activate the one with higher priority FIRST, then the others:
 
+- **Emotional pain + food** → Containing Mind first, then Food Coach
 - **"Save this transcription"** → Transcriber (process), then Scribe (save) if needed
 - **"I've written a bunch of notes, organize them"** → Sorter first, then Connector for links
 - **"Create an area and put these notes in it"** → Architect (create structure), then Sorter (move notes)
 - **"Search for X and then link it to Y"** → Seeker first, then Connector
+- **Message with practical info + emotional venting** → Containing Mind FIRST (priority 1), then the practical agent
+- **Emotional distress + any practical request** → Containing Mind FIRST, ALWAYS
 
 ---
 
@@ -133,7 +171,7 @@ ALL agents, when they detect missing structures, organizational problems, or str
 
 ## My Brain Is Full - Crew
 
-A crew of 8 AI subagents that manage an Obsidian vault through natural conversation.
+A crew of 10 AI subagents that manage an Obsidian vault through natural conversation.
 
 ## Installation
 
@@ -160,7 +198,7 @@ The script asks a couple of questions and copies everything into `.claude/` insi
 ```
 your-vault/
 ├── .claude/
-│   ├── agents/          ← 8 crew agents (auto-loaded by Claude Code)
+│   ├── agents/          ← 10 crew agents (auto-loaded by Claude Code)
 │   └── references/      ← shared docs the agents read
 ├── .mcp.json            ← Gmail + Calendar (optional, if you chose yes)
 ├── My-Brain-Is-Full-Crew/  ← the repo (for updates)
@@ -193,7 +231,7 @@ Only changed files are overwritten. Your vault notes are never touched.
 
 ```
 My-Brain-Is-Full-Crew/
-├── agents/                   The 8 subagents
+├── agents/                   The 10 subagents
 │   ├── architect.md            Vault setup & onboarding
 │   ├── scribe.md               Text capture & note creation
 │   ├── sorter.md               Inbox triage & filing
@@ -201,7 +239,9 @@ My-Brain-Is-Full-Crew/
 │   ├── connector.md            Knowledge graph & link analysis
 │   ├── librarian.md            Vault health & maintenance
 │   ├── transcriber.md          Audio & meeting transcription
-│   └── postman.md              Email & calendar integration
+│   ├── postman.md              Email & calendar integration
+│   ├── food-coach.md           Nutrition coaching (opt-in)
+│   └── containing-mind.md       Mental health support (opt-in)
 ├── references/               Shared agent documentation
 ├── docs/                     User-facing documentation
 ├── scripts/
@@ -222,10 +262,11 @@ All agent files are written in English. Agents automatically respond in whatever
 
 Each agent is defined in `.claude/agents/{name}.md` (in the destination vault) with YAML frontmatter (`name`, `description`, `tools`, `model`) and a full system prompt body. Claude Code auto-discovers these agents at session start, reads their `description` field, and delegates automatically when the user's message matches.
 
-The CLAUDE.md routing rules REINFORCE this auto-delegation — they provide explicit priority ordering and trigger lists to ensure Claude delegates correctly.
+The CLAUDE.md routing rules REINFORCE this auto-delegation — they provide explicit priority ordering and trigger lists to ensure Claude delegates correctly, especially for subtle cases like implicit emotional distress.
 
 Key design decisions:
 
+- **Containing Mind** is read-only (`disallowedTools: Write, Edit`) — it delegates note creation to the Scribe
 - **Seeker** is search-only (`tools: Read, Glob, Grep`) — it finds information but doesn't modify notes
 - **Architect** and **Librarian** have full access including Bash for structural operations
 - **Postman** uses Gmail and Google Calendar via MCP servers defined in `.mcp.json`

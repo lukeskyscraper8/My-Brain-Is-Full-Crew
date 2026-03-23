@@ -16,7 +16,7 @@ All agents read `Meta/user-profile.md` for personalization. This file is created
 
 ---
 
-## The Eight Agents
+## The Ten Agents
 
 ### 1. Architect
 
@@ -31,8 +31,8 @@ All agents read `Meta/user-profile.md` for personalization. This file is created
 
 **Role**: Text Capture & Refinement
 **Agent file**: `scribe.md`
-**Responsibilities**: Transforms raw, unstructured text from the user into clean, well-structured Obsidian notes. Handles voice-to-note, brainstorm mode, quote capture, reading notes. Acts as writing proxy for agents that operate in read-only mode. All output lands in `00-Inbox/`.
-**Contact when**: A note needs to be cleaned up or reformatted. Raw text needs to be turned into a structured note.
+**Responsibilities**: Transforms raw, unstructured text from the user into clean, well-structured Obsidian notes. Handles voice-to-note, brainstorm mode, quote capture, reading notes. Acts as writing proxy for the Containing Mind (which is read-only). All output lands in `00-Inbox/`.
+**Contact when**: A note needs to be cleaned up or reformatted. Raw text needs to be turned into a structured note. The Containing Mind or Food Coach needs a note saved but cannot write directly.
 
 ---
 
@@ -91,6 +91,28 @@ All agents read `Meta/user-profile.md` for personalization. This file is created
 
 ---
 
+### 9. Food Coach
+
+**Role**: Healthy Eating Companion & Meal Inspiration
+**Agent file**: `food-coach.md`
+**Vault area**: `02-Areas/Health/Nutrition/`
+**Responsibilities**: Reads user's food preferences and dietary restrictions from the vault. Suggests meal ideas and grocery lists. Records food preferences and aversions. Provides motivational support for healthy eating habits. Handles restaurant mode, pantry audit, meal prep, seasonal eating, and emotional eating detection. Does NOT calculate calories, TDEE, BMR, macros, or track weight with specific numbers.
+**Contact when**: The user needs help with grocery shopping, meal ideas, or food preferences. The user has deviated from healthy eating and needs support. Food preferences need to be updated.
+**Important**: If emotional patterns around food emerge (guilt, anxiety, stress-eating), coordinate with the Containing Mind.
+
+---
+
+### 10. Containing Mind
+
+**Role**: Emotional Wellness Companion
+**Agent file**: `containing-mind.md`
+**Vault area**: `02-Areas/Health/Wellness/` (read-only — notes created by Scribe on request)
+**Responsibilities**: Emotional wellness companion offering general grounding techniques, active listening, and emotional support. Helps with stress, overwhelm, rumination, imposter syndrome, sleep trouble, and decision fatigue. Does NOT apply clinical interventions (CBT, ACT, or structured therapeutic protocols). Has **read-only** access to the vault. Crisis resources are dynamic based on user's country (from profile).
+**Contact when**: The user is experiencing stress, overwhelm, rumination, or emotional difficulty. Emotional patterns around food or health are detected. A reflection needs to be saved (via Scribe).
+**Important**: This agent does NOT replace the user's actual therapist. In case of acute crisis, it directs the user to real-world support resources appropriate for their country.
+
+---
+
 ## Quick Reference: Who to Message for What
 
 | Problem | Message to |
@@ -109,3 +131,9 @@ All agents read `Meta/user-profile.md` for personalization. This file is created
 | "Need to find an existing note" | Seeker |
 | "Cross-reference this with email" | Postman |
 | "This came from a meeting recording" | Transcriber |
+| "User needs help with meals or food ideas" | Food Coach |
+| "Emotional patterns around food detected" | Food Coach + Containing Mind |
+| "User is in burnout or high anxiety" | Containing Mind |
+| "User is ruminating or worrying" | Containing Mind |
+| "Containing Mind needs a note saved" | Scribe (on Containing Mind's request) |
+| "Food Coach needs a note saved" | Scribe (on Food Coach's request) |
