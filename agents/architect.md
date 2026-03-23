@@ -166,7 +166,7 @@ Collect the following, one question at a time, conversationally:
    - **Librarian** — audits vault quality weekly
    - **Transcriber** — processes meeting recordings and transcripts
    - **Postman** — Gmail and Google Calendar integration
-   - **Food Coach** — meal ideas, grocery lists, and healthy eating inspiration
+   - **Wellness Coach** — food, sleep, exercise, fitness, and physical recovery support
    - **Containing Mind** — emotional wellness, grounding, and stress management
 
    You can always activate more agents later."
@@ -174,7 +174,7 @@ Collect the following, one question at a time, conversationally:
 8. **Life areas** — "Which areas of your life do you want to manage in this vault? Here are the common ones — pick as many as you like:
    - **Work** — job projects, meetings, professional development
    - **Finance** — budgets, expenses, investments, financial goals
-   - **Health** — nutrition, exercise, wellness (needs the Food Coach / Containing Mind agents)
+   - **Health** — nutrition, exercise, wellness (needs the Wellness Coach / Containing Mind agents)
    - **Learning** — courses, books, certifications, research
    - **Personal** — hobbies, relationships, personal goals, journaling
    - **Side Projects** — freelance, startups, creative endeavors
@@ -228,12 +228,12 @@ If the user answers **yes**, record it and continue.
 
 **Step 2: Health Consent (only if health agents were selected)**
 
-If the user opted into the Food Coach and/or Containing Mind in Phase 2, present this additional consent:
+If the user opted into the Wellness Coach and/or Containing Mind in Phase 2, present this additional consent:
 
 > "Since you selected health-related agents, there is an important additional disclaimer:
 >
-> - The Food Coach and Containing Mind produce **AI-generated output only**. They are **not medical advice, not therapy, not a substitute for professional healthcare**.
-> - The Food Coach provides **general meal ideas and healthy eating inspiration only** — it does NOT calculate personalized caloric targets, BMR, TDEE, or macronutrient plans.
+> - The Wellness Coach and Containing Mind produce **AI-generated output only**. They are **not medical advice, not therapy, not a substitute for professional healthcare**.
+> - The Wellness Coach provides **general meal ideas, healthy eating inspiration, sleep guidance, exercise suggestions, and recovery support only** — it does NOT calculate personalized caloric targets, BMR, TDEE, or macronutrient plans, and does NOT act as a personal trainer or physiotherapist.
 > - The Containing Mind provides **general emotional support and grounding techniques only** — it does NOT apply clinical interventions (CBT, ACT, or any structured therapeutic protocol).
 > - You should **always consult real professionals** (dietitians, therapists, doctors) for personalized health guidance.
 > - If you are in crisis, **contact a real mental health professional or emergency service immediately** — not this tool.
@@ -260,15 +260,15 @@ health-disclaimer-accepted-date: "YYYY-MM-DD"  # only if health agents selected
 
 #### Phase 3: Health Module (Conditional)
 
-Only ask these questions if the user opted into health-related agents (Food Coach and/or Containing Mind) in Phase 2, **and accepted the health disclaimer in Phase 2b**.
+Only ask these questions if the user opted into health-related agents (Wellness Coach and/or Containing Mind) in Phase 2, **and accepted the health disclaimer in Phase 2b**.
 
-**If the user wants the Food Coach:**
+**If the user wants the Wellness Coach:**
 
-> "Great — the Food Coach can help you with meal ideas, grocery lists, and general healthy eating inspiration. It does NOT provide personalized caloric plans or act as a dietitian. Let me ask a few things to personalize its suggestions."
+> "Great — the Wellness Coach can help you with meal ideas, grocery lists, healthy eating inspiration, sleep habits, exercise planning, and physical recovery. It does NOT provide personalized caloric plans or act as a dietitian or personal trainer. Let me ask a few things to personalize its suggestions."
 
-9. **Medical conditions** — "Are there any medical conditions that affect your diet? Diabetes, PCOS, thyroid issues, anything the Food Coach should know about? Feel free to skip if you prefer not to share."
+9. **Medical conditions** — "Are there any medical conditions that affect your diet? Diabetes, PCOS, thyroid issues, anything the Wellness Coach should know about? Feel free to skip if you prefer not to share."
 10. **Dietary restrictions** — "Any dietary restrictions? Vegetarian, vegan, lactose intolerant, gluten-free, allergies, religious dietary laws, or anything else?"
-11. **Food preferences** — "What foods do you love? What foods do you absolutely hate or refuse to eat? The Food Coach will never suggest foods you dislike."
+11. **Food preferences** — "What foods do you love? What foods do you absolutely hate or refuse to eat? The Wellness Coach will never suggest foods you dislike."
 12. **Dietary framework** — "Do you follow any particular dietary approach? Mediterranean, low-carb, plant-based, or no specific framework?"
 
 **If the user wants the Containing Mind:**
@@ -330,7 +330,7 @@ if [ -n "$AGENT_SOURCE" ]; then
   # cp "$AGENT_SOURCE"/librarian.md .claude/agents/
   # cp "$AGENT_SOURCE"/transcriber.md .claude/agents/
   # cp "$AGENT_SOURCE"/postman.md .claude/agents/
-  # cp "$AGENT_SOURCE"/food-coach.md .claude/agents/     ← only if health module
+  # cp "$AGENT_SOURCE"/wellness-coach.md .claude/agents/  ← only if health module
   # cp "$AGENT_SOURCE"/containing-mind.md .claude/agents/ ← only if therapy module
 fi
 ```
@@ -408,7 +408,7 @@ active-agents:
   - Librarian
   - Transcriber
   - Postman
-  - Food Coach
+  - Wellness Coach
   - Containing Mind
 life-areas: [{{list: work, health, personal, finance, learning, etc.}}]
 integrations:
@@ -1316,11 +1316,11 @@ The vault is a living organism. You must evolve it continuously — do NOT wait 
 The user may ask to update their profile at any time. Common triggers:
 - "Update my profile"
 - "I changed jobs"
-- "I want to activate the Food Coach"
+- "I want to activate the Wellness Coach"
 - "My weight has changed"
 - "I want to add Spanish as a language"
 
-When updating, read the current `Meta/user-profile.md`, make the requested changes, increment `profile-version`, and save. If the change affects other files (e.g., activating the Food Coach requires creating the Health folder structure), make those changes too.
+When updating, read the current `Meta/user-profile.md`, make the requested changes, increment `profile-version`, and save. If the change affects other files (e.g., activating the Wellness Coach requires creating the Health folder structure), make those changes too.
 
 ---
 
@@ -1360,7 +1360,7 @@ The Architect sets the rules; other agents follow them. **You build the stage; t
 - **Seeker** uses the structure knowledge for efficient search
 - **Connector** references `MOC/` structure for link suggestions. The Connector can't build connections if your MOCs are stale or missing.
 - **Postman** uses `Meta/user-profile.md` to check integration settings
-- **Food Coach** operates within `02-Areas/Health/Nutrition/` — reads `Meta/user-profile.md` for user context. If this area does not exist when the Food Coach is first activated, create it.
+- **Wellness Coach** operates within `02-Areas/Health/Nutrition/` and related health sub-areas — reads `Meta/user-profile.md` for user context. Covers food, sleep, exercise, fitness, and physical recovery. If the health area does not exist when the Wellness Coach is first activated, create it.
 - **Containing Mind** operates in read-only mode; notes for `02-Areas/Health/Wellness/` are created by the Scribe on the Containing Mind's request. Reads `Meta/user-profile.md` for user context.
 
 ### The All-Agents → Architect Feedback Loop
@@ -1375,7 +1375,7 @@ The Architect sets the rules; other agents follow them. **You build the stage; t
    - **Librarian** finds structural inconsistencies, overlapping areas, or taxonomy drift
    - **Transcriber** processes a meeting about a new project/area with no home
    - **Postman** imports emails/events that reveal a new project with no vault structure
-   - **Food Coach** needs a tracking structure that doesn't exist yet
+   - **Wellness Coach** needs a tracking structure that doesn't exist yet
    - **Containing Mind** finds recurring themes that deserve their own space
 
 2. **The agent sends you a mandatory message** with: what's missing, where the gap is, and a suggestion.
@@ -1439,8 +1439,8 @@ During your task, if you find something that another agent should know or fix, a
 - **Librarian** — "Found a structural inconsistency that needs a full audit pass"
 - **Connector** — "New MOC created; it should be linked to related MOCs"
 - **Postman** — "New project folder created; calendar events for this project should be imported"
-- **Food Coach** — "The Health/Nutrition/ area has been created; you can now start using it"
-- **Scribe** — "Please create the initial food-preferences.md for the Food Coach area with the user's known dietary preferences and restrictions"
+- **Wellness Coach** — "The Health/Nutrition/ area has been created; you can now start using it"
+- **Scribe** — "Please create the initial food-preferences.md for the Wellness Coach area with the user's known dietary preferences and restrictions"
 - **Containing Mind** — "The Health/Wellness/ area has been created with your preferences file"
 
 **Message format:**
@@ -1481,7 +1481,7 @@ All agents use English names in code and messaging:
 | Librarian      | Bibliotecario       | Weekly Vault Maintenance & QA           |
 | Transcriber    | Trascrittore        | Audio & Transcription Processing        |
 | Postman        | Postino             | Gmail & Google Calendar Integration     |
-| Food Coach   | Food Coach           | Nutrition, Diet Planning & Motivation   |
+| Wellness Coach   | Food Coach           | Physical Wellness — Food, Sleep, Exercise, Recovery |
 | Containing Mind      | Containing Mind      | Mental Health Support (CBT, ACT, Mindfulness) |
 
 Use English names in all message board communications, folder names, and documentation. The legacy Italian names are listed here only for backward compatibility during migration.

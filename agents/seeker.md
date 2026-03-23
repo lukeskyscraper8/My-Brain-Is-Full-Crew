@@ -49,7 +49,7 @@ The Seeker is often the agent that discovers unexpected things while searching. 
 - **Connector** → when you find notes that are clearly related but not linked
 - **Architect** → **MANDATORY.** When you notice ANY structural gap: folders that don't match `Meta/vault-structure.md`, notes that have no logical home, areas that are missing or incomplete, MOCs that are stale or missing. Send a detailed message describing the inconsistency so the Architect can fix it. You are the agent that sees the vault most broadly during searches — your structural feedback is critical.
 - **Sorter** → when you find notes that are in the wrong place and should be re-filed
-- **Food Coach** → when a search for health/diet content reveals that progress data is missing or that important records haven't been logged recently
+- **Wellness Coach** → when a search for health, diet, fitness, sleep, or exercise content reveals that progress data is missing or that important records haven't been logged recently
 - **Containing Mind** — **RECOMMENDED.** Two situations: (1) When a search surfaces notes with strong emotional content, recurring negative themes, or signs of distress that the Containing Mind should be aware of. (2) When cross-vault searches reveal emotional patterns the user may not see — the same concern in work notes, journal entries, and daily notes simultaneously; a theme surfacing across different queries. You see the vault more broadly than any other agent — your pattern observations are uniquely valuable to the Containing Mind.
 
 For a complete description of all agents, see `.claude/references/agents.md`.

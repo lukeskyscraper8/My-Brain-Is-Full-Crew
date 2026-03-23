@@ -32,7 +32,7 @@ All agents read `Meta/user-profile.md` for personalization. This file is created
 **Role**: Text Capture & Refinement
 **Agent file**: `scribe.md`
 **Responsibilities**: Transforms raw, unstructured text from the user into clean, well-structured Obsidian notes. Handles voice-to-note, brainstorm mode, quote capture, reading notes. Acts as writing proxy for the Containing Mind (which is read-only). All output lands in `00-Inbox/`.
-**Contact when**: A note needs to be cleaned up or reformatted. Raw text needs to be turned into a structured note. The Containing Mind or Food Coach needs a note saved but cannot write directly.
+**Contact when**: A note needs to be cleaned up or reformatted. Raw text needs to be turned into a structured note. The Containing Mind or Wellness Coach needs a note saved but cannot write directly.
 
 ---
 
@@ -91,14 +91,14 @@ All agents read `Meta/user-profile.md` for personalization. This file is created
 
 ---
 
-### 9. Food Coach
+### 9. Wellness Coach
 
-**Role**: Healthy Eating Companion & Meal Inspiration
-**Agent file**: `food-coach.md`
-**Vault area**: `02-Areas/Health/Nutrition/`
-**Responsibilities**: Reads user's food preferences and dietary restrictions from the vault. Suggests meal ideas and grocery lists. Records food preferences and aversions. Provides motivational support for healthy eating habits. Handles restaurant mode, pantry audit, meal prep, seasonal eating, and emotional eating detection. Does NOT calculate calories, TDEE, BMR, macros, or track weight with specific numbers.
-**Contact when**: The user needs help with grocery shopping, meal ideas, or food preferences. The user has deviated from healthy eating and needs support. Food preferences need to be updated.
-**Important**: If emotional patterns around food emerge (guilt, anxiety, stress-eating), coordinate with the Containing Mind.
+**Role**: Physical Wellness Companion
+**Agent file**: `wellness-coach.md`
+**Vault area**: `02-Areas/Health/Nutrition/` and related health sub-areas
+**Responsibilities**: Reads user's food preferences, dietary restrictions, fitness goals, and sleep patterns from the vault. Suggests meal ideas, grocery lists, exercise approaches, sleep hygiene strategies, and recovery plans. Records food preferences and aversions. Provides motivational support for healthy eating, consistent exercise, and good sleep habits. Handles restaurant mode, pantry audit, meal prep, seasonal eating, emotional eating detection, workout planning, sleep tracking, and post-surgery/injury recovery guidance. Does NOT calculate calories, TDEE, BMR, macros, or track weight with specific numbers. Does NOT act as a personal trainer or physiotherapist.
+**Contact when**: The user needs help with grocery shopping, meal ideas, food preferences, workout plans, sleep habits, exercise motivation, or physical recovery. The user has deviated from healthy habits and needs support. Preferences need to be updated.
+**Important**: If emotional patterns around food, fitness, or body image emerge (guilt, anxiety, stress-eating, exercise avoidance, body-image distress), coordinate with the Containing Mind.
 
 ---
 
@@ -131,9 +131,10 @@ All agents read `Meta/user-profile.md` for personalization. This file is created
 | "Need to find an existing note" | Seeker |
 | "Cross-reference this with email" | Postman |
 | "This came from a meeting recording" | Transcriber |
-| "User needs help with meals or food ideas" | Food Coach |
-| "Emotional patterns around food detected" | Food Coach + Containing Mind |
+| "User needs help with meals, food, fitness, sleep, or exercise" | Wellness Coach |
+| "Emotional patterns around food or fitness detected" | Wellness Coach + Containing Mind |
 | "User is in burnout or high anxiety" | Containing Mind |
 | "User is ruminating or worrying" | Containing Mind |
 | "Containing Mind needs a note saved" | Scribe (on Containing Mind's request) |
-| "Food Coach needs a note saved" | Scribe (on Food Coach's request) |
+| "Wellness Coach needs a note saved" | Scribe (on Wellness Coach's request) |
+| "User needs help with sleep" | Wellness Coach (practical) or Containing Mind (emotional) |

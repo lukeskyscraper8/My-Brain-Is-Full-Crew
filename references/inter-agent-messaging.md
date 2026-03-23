@@ -144,7 +144,7 @@ Use these names in messages:
 | Librarian | `FROM/TO: Librarian` |
 | Transcriber | `FROM/TO: Transcriber` |
 | Postman | `FROM/TO: Postman` |
-| Food Coach | `FROM/TO: Food Coach` |
+| Wellness Coach | `FROM/TO: Wellness Coach` |
 | Containing Mind | `FROM/TO: Containing Mind` |
 
 ---
@@ -175,10 +175,10 @@ Use these names in messages:
 **Resolution**: Created `02-Areas/Personal Finance/` with index.md and `MOC/Personal Finance.md`. Tag taxonomy updated with `#area/personal-finance`. Notes in `03-Resources/Finance/` can be moved by the Sorter in the next session.
 ```
 
-### Example 3: Food Coach -> Containing Mind (cross-domain)
+### Example 3: Wellness Coach -> Containing Mind (cross-domain)
 
 ```markdown
-## [pending] [2026-03-20] FROM: Food Coach -> TO: Containing Mind
+## [pending] [2026-03-20] FROM: Wellness Coach -> TO: Containing Mind
 **Subject**: Possible stress-eating pattern detected
 
 **Context**: During a meal logging session, the user reported eating a large unplanned meal and explicitly connected it to work stress ("I was so stressed about the deadline").

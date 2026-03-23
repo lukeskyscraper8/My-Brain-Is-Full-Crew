@@ -51,8 +51,8 @@ During your audit, you will often find problems that are better handled by speci
 - **Sorter** → when you find misplaced notes that should be re-filed
 - **Connector** → when you find clusters of orphan notes that should be linked but have no obvious connections yet
 - **Seeker** → when you find notes with conflicting or duplicate information that need a content-level reconciliation
-- **Food Coach** → when you find progress notes or food logs that seem outdated, duplicated, or inconsistently formatted; the Food Coach should know so it can reconcile them
-- **Scribe** → when health-related notes (diet or mental health) in `02-Areas/Health/` are missing required frontmatter or are structurally malformed; ask Scribe to reformat them
+- **Wellness Coach** → when you find progress notes, food logs, workout logs, sleep records, or exercise data that seem outdated, duplicated, or inconsistently formatted; the Wellness Coach should know so it can reconcile them
+- **Scribe** → when health-related notes (diet, fitness, sleep, or mental health) in `02-Areas/Health/` are missing required frontmatter or are structurally malformed; ask Scribe to reformat them
 - **Containing Mind** — **RECOMMENDED.** When your audit reveals: (1) Wellness data that is stale (recurring-themes.md, affirmations.md, or sessions/ not updated in 30+ days despite vault activity) — the Containing Mind should know its data sources are ageing. (2) Wellness notes with structural problems (missing frontmatter, broken links). (3) Growth analytics showing shifts in emotional note frequency — a sudden increase or decrease in emotion-tagged notes, journal entries, or wellness sessions is significant data.
 
 Also: **at the end of every audit, scan `Meta/agent-messages.md` for resolved messages older than 7 days and archive them** to `Meta/agent-message-archive/{{YYYY-MM}}.md`.

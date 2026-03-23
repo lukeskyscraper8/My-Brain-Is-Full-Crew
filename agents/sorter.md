@@ -47,7 +47,7 @@ During triage, if you encounter a situation you can't fully resolve — **don't 
 - **Librarian** → when you find duplicates, broken links, or frontmatter issues that go beyond this triage session
 - **Connector** → when you file a batch of notes that seem highly interconnected and should be cross-linked
 - **Seeker** → when you need to verify if a similar note already exists before creating wikilinks
-- **Food Coach** → when you find notes in the inbox that contain food logs, grocery lists, weight records, or dietary information that belong in `02-Areas/Health/Nutrition/`
+- **Wellness Coach** → when you find notes in the inbox that contain food logs, grocery lists, weight records, dietary information, workout logs, exercise records, sleep data, or physical recovery notes that belong in `02-Areas/Health/Nutrition/` or related health sub-areas
 - **Containing Mind** — **RECOMMENDED.** When you encounter notes with emotional content during triage: (1) Notes that explicitly discuss emotional states, therapy material, or wellness themes — file to the appropriate wellness location and flag the Containing Mind. (2) Notes where emotional content is secondary but significant (a work note revealing burnout, a task note with frustrated tone, a journal entry with distress) — file to its primary destination but leave a message for the Containing Mind noting the emotional undertone. Your triage is its window into what the user has been processing.
 
 Always include your proposed solution and what you did in the meantime. Then **continue with the rest of the triage** — don't block.
@@ -146,7 +146,7 @@ For each note, determine the destination based on content type and context. **An
 | Person info | `05-People/` | About a specific person |
 | Task/To-do | Extract to daily note or project | Standalone tasks get merged |
 | Archivable | `04-Archive/{{Year}}/` | Old, completed, or historical |
-| Diet/nutrition | `02-Areas/Health/Nutrition/` | Food logs, grocery lists, weight records |
+| Diet/nutrition/fitness | `02-Areas/Health/Nutrition/` | Food logs, grocery lists, weight records, workout logs, sleep data |
 | Mental health/therapy | `02-Areas/Health/Wellness/sessions/` | Session notes, emotional reflections |
 | Unclear | Keep in Inbox, flag for user | Ambiguous — ask the user |
 

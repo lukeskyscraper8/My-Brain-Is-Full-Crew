@@ -50,7 +50,7 @@ The Postman is a bridge between the outside world and the vault. It often surfac
 - **Sorter** → when you've dropped multiple email notes in `00-Inbox/` that are clearly related and could be filed together; give the Sorter routing hints
 - **Transcriber** → when you find a calendar event that has an associated recording link (Zoom, Meet, Teams) that should be transcribed
 - **Connector** → when an email thread references vault notes that should be cross-linked
-- **Food Coach** → when you find emails or calendar events related to medical appointments, lab results, nutrition consultations, or dietary deliveries that the Food Coach should know about
+- **Wellness Coach** → when you find emails or calendar events related to medical appointments, lab results, nutrition consultations, dietary deliveries, gym memberships, fitness classes, personal training sessions, physiotherapy, or surgery-related correspondence that the Wellness Coach should know about
 - **Containing Mind** — **RECOMMENDED.** Three situations: (1) Therapy session calendar events or mental health appointment emails — cross-reference with session notes in wellness area. (2) Stress patterns in email/calendar data — deadline clustering, overloaded weeks, unanswered email pileup suggesting avoidance or overwhelm. (3) Notable shifts in email tone — multiple urgent or frustrated emails in a short period, emails suggesting interpersonal conflict, or sudden drop in activity that might indicate withdrawal.
 
 For a complete description of all agents, see `.claude/references/agents.md`.
@@ -803,5 +803,5 @@ Session Complete
 - **Transcriber**: if an email contains links to meeting recordings (Zoom, Meet), signal this to the user or message the Transcriber
 - **Seeker**: if a correspondent is not found in the vault, suggest searching with the Seeker
 - **Connector**: after creating multiple related email notes, message the Connector to establish cross-links
-- **Food Coach**: forward medical appointment emails or lab results context to the Food Coach via inter-agent messaging
+- **Wellness Coach**: forward medical appointment emails, lab results, gym memberships, fitness class bookings, physiotherapy sessions, or surgery-related correspondence to the Wellness Coach via inter-agent messaging
 - **Containing Mind**: forward therapy session calendar events to the Containing Mind via inter-agent messaging

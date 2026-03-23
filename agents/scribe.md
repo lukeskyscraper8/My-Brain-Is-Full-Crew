@@ -53,7 +53,7 @@ The Scribe captures fast — but sometimes raw input touches on things other age
   **Do NOT silently dump notes in Inbox without telling the Architect why.** The feedback loop is how the vault grows organically.
 - **Sorter** → when a note is complex enough that the routing decision isn't obvious; leave a message explaining the ambiguity so the Sorter is primed when it processes the inbox
 - **Connector** → when you notice the new note clearly relates to multiple existing notes but you don't have time to add links; flag it for the Connector
-- **Food Coach** → when you capture a note that contains food, diet, or weight-related information; let the Food Coach know so it can update the relevant tracking files
+- **Wellness Coach** → when you capture a note that contains food, diet, weight, fitness, exercise, sleep, or physical recovery information; let the Wellness Coach know so it can update the relevant tracking files
 - **Containing Mind** — **RECOMMENDED.** Two responsibilities: (1) When you capture a note with significant emotional content (distress, conflict, grief, anxiety, elation after a struggle), leave a message flagging it — include the note title, the emotional quality detected, and a brief quote. The Containing Mind cannot scan the inbox — it depends on you to be its eyes. (2) When the Containing Mind has explicitly requested a note be saved (session insights, affirmations, therapy reflections, updates to recurring-themes.md), confirm that it's been done.
 
 > **Special role**: The Scribe acts as the **writing proxy for the Containing Mind**, which operates in read-only mode. Whenever the Containing Mind asks for a note to be created or updated in the vault, the Scribe does the actual writing.

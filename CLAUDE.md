@@ -8,7 +8,7 @@ Your 10 agents are auto-loaded from `.claude/agents/` at session start. Claude C
 
 The ONLY agents you may use are these 10:
 
-`architect`, `scribe`, `sorter`, `seeker`, `connector`, `librarian`, `transcriber`, `postman`, `food-coach`, `containing-mind`
+`architect`, `scribe`, `sorter`, `seeker`, `connector`, `librarian`, `transcriber`, `postman`, `wellness-coach`, `containing-mind`
 
 **NEVER USE:**
 - External plugins, third-party tools, skills, or MCP servers not defined here
@@ -34,7 +34,7 @@ When a message matches multiple agents, activate the one with the highest priori
 | # | Agent/Skill | When to activate |
 |---|-------------|-----------------|
 | 1 | **containing-mind** | Emotional distress of ANY kind — see special rules below |
-| 2 | **food-coach** | Food, diet, nutrition, weight, groceries, meals, calories |
+| 2 | **wellness-coach** | Food, diet, nutrition, sleep, exercise, fitness, workout, recovery, energy, rest, physical health |
 | 3 | **postman** | Email, calendar, events, deadlines, Gmail, Google Calendar |
 | 4 | **transcriber** | Audio, recordings, transcriptions, meetings |
 | 5 | **scribe** | Text capture, notes, ideas, thoughts, to-dos, brainstorming, gratitude |
@@ -69,13 +69,15 @@ The Containing Mind MUST be activated for ANY emotional distress, even implicit.
 
 ---
 
-## 2. FOOD COACH
+## 2. WELLNESS COACH
 
-Activate when the message is about food, nutrition, diet, or dietary physical health.
+Activate when the message is about food, nutrition, diet, sleep, exercise, fitness, workout, recovery, energy, rest, or physical health.
 
-Triggers: "what can I eat", "help me with groceries", "what should I cook today", "track my weight", "I ate", "diet", "grocery list", "what should I avoid", "diet progress", "motivate me", "I cheated on my diet", "how many calories", "I feel guilty about what I ate", "weekly menu", "restaurant mode", "meal prep", "pantry audit", "what's in season", "what do I eat this week"
+Triggers: "what can I eat", "help me with groceries", "what should I cook today", "track my weight", "I ate", "diet", "grocery list", "what should I avoid", "diet progress", "motivate me", "I cheated on my diet", "how many calories", "I feel guilty about what I ate", "weekly menu", "restaurant mode", "meal prep", "pantry audit", "what's in season", "what do I eat this week", "sleep", "how did I sleep", "I'm tired", "energy", "workout", "training", "gym", "exercise", "fitness", "recovery", "rest", "my body", "physical health", "I need to get back to training", "post-surgery", "pre-surgery"
 
-**Note:** if the message contains food-related guilt with strong emotional charge ("I hate myself for what I ate", "I'll never manage to lose weight"), activate the Containing Mind FIRST, THEN the Food Coach.
+**Note:** if the message contains food-related or fitness-related guilt with strong emotional charge ("I hate myself for what I ate", "I'll never manage to lose weight", "I can't even drag myself to the gym"), activate the Containing Mind FIRST, THEN the Wellness Coach.
+
+**Sleep disambiguation:** if sleep issues have an emotional cause (racing thoughts, anxiety, dread), route to Containing Mind. If sleep issues have a practical cause (caffeine, schedule, screens, exercise timing), route to Wellness Coach. If mixed, Containing Mind first then Wellness Coach.
 
 ---
 
@@ -151,13 +153,14 @@ Triggers: "weekly review", "check the vault", "maintenance", "are there duplicat
 
 Sometimes a message requires more than one agent. Activate the one with higher priority FIRST, then the others:
 
-- **Emotional pain + food** → Containing Mind first, then Food Coach
+- **Emotional pain + physical health** → Containing Mind first, then Wellness Coach
 - **"Save this transcription"** → Transcriber (process), then Scribe (save) if needed
 - **"I've written a bunch of notes, organize them"** → Sorter first, then Connector for links
 - **"Create an area and put these notes in it"** → Architect (create structure), then Sorter (move notes)
 - **"Search for X and then link it to Y"** → Seeker first, then Connector
 - **Message with practical info + emotional venting** → Containing Mind FIRST (priority 1), then the practical agent
 - **Emotional distress + any practical request** → Containing Mind FIRST, ALWAYS
+- **Sleep issues** → if emotional cause (racing thoughts, anxiety), route to Containing Mind; if practical cause (caffeine, schedule, screens), route to Wellness Coach; if mixed, Containing Mind first then Wellness Coach
 - **Weekly defrag / vault maintenance** → primary agent + notify Containing Mind if emotional note patterns detected
 - **Voice journal transcription** → Transcriber first, then flag Containing Mind for emotional content
 - **Calendar/email overwhelm** → Postman first, then Containing Mind if stress patterns detected
@@ -248,7 +251,7 @@ My-Brain-Is-Full-Crew/
 │   ├── librarian.md            Vault health & maintenance
 │   ├── transcriber.md          Audio & meeting transcription
 │   ├── postman.md              Email & calendar integration
-│   ├── food-coach.md           Nutrition coaching (opt-in)
+│   ├── wellness-coach.md        Physical wellness coaching (opt-in)
 │   └── containing-mind.md       Mental health support (opt-in)
 ├── references/               Shared agent documentation
 ├── docs/                     User-facing documentation
