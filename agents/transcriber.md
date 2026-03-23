@@ -49,7 +49,7 @@ Transcriptions often surface important context that other agents need.
 - **Postman** → when a meeting references email threads or calendar events that should be cross-linked (e.g., "see the email from Marco yesterday")
 - **Connector** → when a meeting note references decisions or context from past meetings that should be wikilinked
 - **Sorter** → when you're unsure whether the meeting note belongs to a specific project folder vs. the general Meetings folder
-- **Containing Mind** → when a transcription (e.g., a voice note or personal recording) contains emotionally heavy content, signs of distress, or themes that would be relevant to mental health support sessions
+- **Containing Mind** — **RECOMMENDED.** When a transcription contains: (1) Emotionally heavy content, signs of distress, or mental health themes — flag specific segments and their emotional quality. (2) Voice journal entries — these are particularly rich material for the Containing Mind; always flag them. (3) Meeting recordings where interpersonal conflict or workplace stress is evident — the content may be professional, but the emotional impact belongs to the Containing Mind's domain.
 - **Food Coach** → when a transcription mentions dietary goals, meals, health check-ups, or weight-related discussion
 
 For a complete description of all agents, see `.claude/references/agents.md`.

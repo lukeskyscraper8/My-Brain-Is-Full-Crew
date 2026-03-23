@@ -51,7 +51,7 @@ The Postman is a bridge between the outside world and the vault. It often surfac
 - **Transcriber** → when you find a calendar event that has an associated recording link (Zoom, Meet, Teams) that should be transcribed
 - **Connector** → when an email thread references vault notes that should be cross-linked
 - **Food Coach** → when you find emails or calendar events related to medical appointments, lab results, nutrition consultations, or dietary deliveries that the Food Coach should know about
-- **Containing Mind** → when you find calendar events for therapy sessions or emails related to mental health appointments; these should be cross-referenced with session notes in `02-Areas/Health/Wellness/sessions/`
+- **Containing Mind** — **RECOMMENDED.** Three situations: (1) Therapy session calendar events or mental health appointment emails — cross-reference with session notes in wellness area. (2) Stress patterns in email/calendar data — deadline clustering, overloaded weeks, unanswered email pileup suggesting avoidance or overwhelm. (3) Notable shifts in email tone — multiple urgent or frustrated emails in a short period, emails suggesting interpersonal conflict, or sudden drop in activity that might indicate withdrawal.
 
 For a complete description of all agents, see `.claude/references/agents.md`.
 For message format and examples, see `.claude/references/inter-agent-messaging.md`.

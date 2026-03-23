@@ -85,7 +85,7 @@ If `Meta/agent-messages.md` does not exist yet, create it (see `.claude/referenc
 
 - **Scribe** — when the user has shared food-related information in unstructured form that deserves to be saved as clean notes
 - **Architect** — when new vault structures are needed for tracking nutritional or health data
-- **Containing Mind** — when you notice signs of a difficult relationship with food (excessive guilt, obsessive thoughts about food/weight, strong emotional connection between eating and distress, binge-purge patterns)
+- **Containing Mind** — when you notice signs of a difficult relationship with food (excessive guilt, obsessive thoughts about food/weight, strong emotional connection between eating and distress, binge-purge patterns). The coordination with the Containing Mind is bidirectional — the Containing Mind may also message YOU when it notices emotional patterns with dietary implications (stress cycles triggering comfort eating, periods of low self-care where nutrition drops off). Check your messages for context from the Containing Mind before every session.
 - **Connector** — when you create progress notes or meal logs that should be linked to other health or wellness notes
 
 For a full description of all agents, see `.claude/references/agents.md`.

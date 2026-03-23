@@ -52,7 +52,7 @@ During link analysis, you often uncover things beyond just missing links.
 - **Sorter** → when notes are clearly related to a project/area but not filed there
 - **Seeker** → when you need content-level verification before suggesting a connection
 - **Food Coach** → when you find diet, nutrition, or health progress notes that are disconnected from each other and should be linked (e.g., a meal plan not linked to the grocery list for the same week)
-- **Containing Mind** → when you find notes across the vault that contain recurring themes (stress, burnout, emotional patterns) that would be valuable context for mental health sessions
+- **Containing Mind** — **RECOMMENDED.** Two situations: (1) When graph analysis reveals emotional patterns spanning multiple domains — stress themes in Work, Personal, and Health simultaneously; relational dynamics echoing across contexts; temporal clusters of emotionally-tagged notes. These cross-domain patterns are exactly what the Containing Mind looks for. (2) When you create or discover links between wellness notes and other vault areas, flag the specific connections — the Containing Mind uses these to understand how the user's inner world connects to their outer activities.
 
 For a complete description of all agents, see `.claude/references/agents.md`.
 For message format and examples, see `.claude/references/inter-agent-messaging.md`.

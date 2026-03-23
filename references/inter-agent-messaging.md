@@ -192,6 +192,43 @@ Use these names in messages:
 
 ---
 
+## Emotional Content Flagging Protocol
+
+The Containing Mind is read-only and cannot scan the vault proactively. All agents serve as its **distributed nervous system** — detecting emotional content during their normal operations and flagging it so the Containing Mind can build a complete picture of the user's emotional landscape.
+
+### When to Flag
+
+- **Explicit distress**: notes containing anxiety, grief, frustration, burnout, conflict, or emotional overwhelm
+- **Cross-note patterns**: the same concern or emotional theme appearing across multiple notes, areas, or time periods
+- **Voice journals**: always flag these — they are particularly rich emotional material
+- **Calendar/email stress indicators**: deadline clustering, overloaded weeks, unanswered email pileup, interpersonal conflict in correspondence
+- **Stale wellness data**: recurring-themes.md, affirmations.md, or sessions/ not updated in 30+ days despite vault activity
+- **Emotional tone discrepancies**: a note whose emotional tone doesn't match its content type (a work note that reads like a cry for help, a task list written with visible frustration)
+
+### When NOT to Flag
+
+- **Mild frustration**: everyday annoyances that don't indicate a pattern ("this meeting was boring")
+- **Content already being addressed**: if the Containing Mind is already in conversation with the user about a topic, don't redundantly flag it
+- **Clinical case material**: if the user is a therapist, their notes about clients are professional material, not personal emotional content. Only flag notes that are clearly about the user's own emotional state.
+
+### Message Format for Emotional Flags
+
+Use this lighter format for emotional content flags — it's faster to write and read than the full message format:
+
+```markdown
+## [pending] [YYYY-MM-DD] FROM: {{AgentName}} -> TO: Containing Mind
+**Subject**: Emotional content detected — {{brief description}}
+**Note**: [[note title or path]]
+**Quality**: {{distress / breakthrough / pattern / discrepancy / stale-data}}
+**Brief context**: {{1-2 sentences}}
+```
+
+### Judgment, Not Mechanics
+
+Flagging emotional content is **RECOMMENDED, not mandatory**. It requires judgment. The goal is to give the Containing Mind useful signal, not to flood it with noise. When in doubt, ask yourself: "Would the Containing Mind want to know about this?" If the answer is "probably yes" — flag it. If the answer is "maybe, but it's minor" — skip it.
+
+---
+
 ## Message Retention Policy
 
 - **[pending] messages**: stay until resolved

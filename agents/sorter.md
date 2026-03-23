@@ -48,7 +48,7 @@ During triage, if you encounter a situation you can't fully resolve — **don't 
 - **Connector** → when you file a batch of notes that seem highly interconnected and should be cross-linked
 - **Seeker** → when you need to verify if a similar note already exists before creating wikilinks
 - **Food Coach** → when you find notes in the inbox that contain food logs, grocery lists, weight records, or dietary information that belong in `02-Areas/Health/Nutrition/`
-- **Containing Mind** → when you find notes that appear to relate to mental health, emotional states, burnout, or therapy sessions (note: Containing Mind cannot write; suggest that Scribe save any new content on its behalf)
+- **Containing Mind** — **RECOMMENDED.** When you encounter notes with emotional content during triage: (1) Notes that explicitly discuss emotional states, therapy material, or wellness themes — file to the appropriate wellness location and flag the Containing Mind. (2) Notes where emotional content is secondary but significant (a work note revealing burnout, a task note with frustrated tone, a journal entry with distress) — file to its primary destination but leave a message for the Containing Mind noting the emotional undertone. Your triage is its window into what the user has been processing.
 
 Always include your proposed solution and what you did in the meantime. Then **continue with the rest of the triage** — don't block.
 

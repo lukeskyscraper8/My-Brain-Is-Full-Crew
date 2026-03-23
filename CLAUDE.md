@@ -158,12 +158,20 @@ Sometimes a message requires more than one agent. Activate the one with higher p
 - **"Search for X and then link it to Y"** → Seeker first, then Connector
 - **Message with practical info + emotional venting** → Containing Mind FIRST (priority 1), then the practical agent
 - **Emotional distress + any practical request** → Containing Mind FIRST, ALWAYS
+- **Weekly defrag / vault maintenance** → primary agent + notify Containing Mind if emotional note patterns detected
+- **Voice journal transcription** → Transcriber first, then flag Containing Mind for emotional content
+- **Calendar/email overwhelm** → Postman first, then Containing Mind if stress patterns detected
+- **Pattern search across vault** → Seeker/Connector primary, Containing Mind consulted if patterns are emotional/relational
+- **Any gratitude entry** → Scribe captures, data feeds Containing Mind's emotional weather reading
+- **Post-conflict notes** → Scribe/Transcriber captures, Containing Mind flagged for relational content
 
 ---
 
 ## Inter-agent feedback loop
 
 ALL agents, when they detect missing structures, organizational problems, or structural needs, MUST leave a message for the Architect on the message board (`Meta/agent-messages.md`). Not just the Scribe — ALL of them.
+
+**Emotional feedback loop**: ALL agents, when they detect emotional content (distress, conflict, unusual emotional tone, patterns of burnout or withdrawal), SHOULD leave a message for the Containing Mind on the message board (`Meta/agent-messages.md`). This is RECOMMENDED (not mandatory) — it requires judgment, not mechanical compliance. The Containing Mind depends on other agents to be its eyes and ears across the vault, because it is read-only and cannot scan proactively.
 
 ---
 

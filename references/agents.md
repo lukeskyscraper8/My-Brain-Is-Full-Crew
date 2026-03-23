@@ -104,12 +104,12 @@ All agents read `Meta/user-profile.md` for personalization. This file is created
 
 ### 10. Containing Mind
 
-**Role**: Emotional Wellness Companion
+**Role**: Emotional Wellness Companion & Pattern Observer
 **Agent file**: `containing-mind.md`
 **Vault area**: `02-Areas/Health/Wellness/` (read-only — notes created by Scribe on request)
-**Responsibilities**: Emotional wellness companion offering general grounding techniques, active listening, and emotional support. Helps with stress, overwhelm, rumination, imposter syndrome, sleep trouble, and decision fatigue. Does NOT apply clinical interventions (CBT, ACT, or structured therapeutic protocols). Has **read-only** access to the vault. Crisis resources are dynamic based on user's country (from profile).
-**Contact when**: The user is experiencing stress, overwhelm, rumination, or emotional difficulty. Emotional patterns around food or health are detected. A reflection needs to be saved (via Scribe).
-**Important**: This agent does NOT replace the user's actual therapist. In case of acute crisis, it directs the user to real-world support resources appropriate for their country.
+**Responsibilities**: Emotional wellness companion offering general grounding techniques, active listening, and emotional support. Helps with stress, overwhelm, rumination, imposter syndrome, sleep trouble, and decision fatigue. Does NOT apply clinical interventions (CBT, ACT, or structured therapeutic protocols). Has **read-only** access to the vault — influences the vault through messages and recommendations to other agents. Can now message ALL agents when emotional patterns are detected. Reads the vault's emotional landscape before every session by checking messages from other agents, recent wellness notes, and gratitude entries. Detects cross-domain emotional patterns (stress appearing in work, personal, and health notes simultaneously). Crisis resources are dynamic based on user's country (from profile).
+**Contact when**: The user is experiencing stress, overwhelm, rumination, or emotional difficulty. Emotional patterns around food or health are detected. A reflection needs to be saved (via Scribe). Any agent detects emotional content in notes they are processing.
+**Important**: This agent does NOT replace the user's actual therapist. In case of acute crisis, it directs the user to real-world support resources appropriate for their country. All other agents serve as its distributed nervous system — flagging emotional content they encounter so the Containing Mind can build a complete picture.
 
 ---
 
