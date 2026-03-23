@@ -1,16 +1,91 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Agents-8-blueviolet?style=for-the-badge" alt="8 Agents" />
+  <img src="https://img.shields.io/badge/Agents-10-blueviolet?style=for-the-badge" alt="10 Agents" />
   <img src="https://img.shields.io/badge/Language-Any-success?style=for-the-badge" alt="Any Language" />
   <img src="https://img.shields.io/badge/Platform-Obsidian%20%2B%20Claude-blue?style=for-the-badge" alt="Obsidian + Claude" />
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="MIT License" />
   <a href="https://discord.gg/EUnQmABw8s"><img src="https://img.shields.io/badge/Discord-Join%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
 </p>
 
-# My Brain Is Full - Crew
+# My Brain Is Full - Crew (Fork)
 
-### A team of 8 AI agents that manage your Obsidian vault so your brain doesn't have to.
+### A team of 10 AI agents that manage your Obsidian vault so your brain doesn't have to.
 
-You talk. They organize, file, connect, search, transcribe, and triage your email. In any language.
+> **This is a fork of [gnekt/My-Brain-Is-Full-Crew](https://github.com/gnekt/My-Brain-Is-Full-Crew).** It extends the original 8-agent crew with 2 new agents, a distributed emotional awareness system, and simplified routing. See [What this fork changes](#what-this-fork-changes) below.
+
+You talk. They organize, file, connect, search, transcribe, triage your email, track your wellness, and hold the emotional stuff too. In any language.
+
+---
+
+## What this fork changes
+
+This fork builds on the original crew with changes in four areas. The reasoning behind each is explained below, both as documentation and as a conversation-starter with the upstream author.
+
+### 1. Two new agents: Wellness Coach and Containing Mind
+
+The original crew had 8 agents focused on knowledge management and productivity. This fork adds two that extend into physical and emotional wellness:
+
+| Agent | What it does |
+|-------|-------------|
+| **Wellness Coach** | Covers food, sleep, exercise, recovery, and energy management. ADHD-aware (structure over willpower). Includes pre/post-surgery guidance, dietary framework support, and grocery/meal planning. |
+| **Containing Mind** | A psychoanalytically-informed emotional companion. Offers containment and reflective listening informed by Bion, Winnicott, and Klein. Read-only vault access. Runs on Opus for the reasoning depth required. |
+
+**Why:** The original crew is excellent at organising information, but life isn't just information. Sustainable productivity depends on physical health and emotional wellbeing. These two agents address the gap — the Wellness Coach handles the body, the Containing Mind holds the feelings. Both include explicit disclaimers that they are not therapy, not medical advice, and not replacements for professionals.
+
+**Design choice — Containing Mind is read-only:** It cannot create or modify notes. When it identifies something worth capturing, it delegates to the Scribe. This prevents an emotionally-focused agent from making structural changes to the vault, and keeps responsibilities cleanly separated.
+
+**Design choice — Opus model:** The Containing Mind runs on Claude Opus rather than Sonnet. Psychoanalytic reasoning — holding ambiguity, noticing defences, reading between the lines — benefits from the stronger model. The other 9 agents remain on Sonnet.
+
+### 2. Containing Mind as a distributed nervous system
+
+The most significant architectural change. Rather than being a standalone agent that only activates when someone says "I feel anxious", the Containing Mind is woven into the entire crew:
+
+- **All 9 other agents** can flag emotional content to the Containing Mind via the shared message board (`Meta/agent-messages.md`). This is recommended, not mandatory — it requires judgment from each agent about what constitutes emotional significance.
+- **Emotional Weather Reading:** Before each session, the Containing Mind scans recent journal entries, the message board, and a `recurring-themes.md` file to build context about the user's emotional state.
+- **Co-activation rules** in `CLAUDE.md` ensure the Containing Mind is consulted first when emotional distress appears alongside a practical request (e.g., "I can't sleep" routes to Containing Mind if the cause is anxiety, to Wellness Coach if it's caffeine timing, or both if it's mixed).
+
+**Why:** Emotion doesn't live in a separate box. It surfaces in how someone writes a note, what they capture from a meeting, what they avoid filing, what patterns repeat across their vault. A crew that can only notice emotion when explicitly told about it misses the point. This architecture lets emotional awareness be ambient — present across the system rather than siloed in one agent.
+
+**Why "recommended, not mandatory" for flagging:** Mechanical compliance ("this note mentions 'stress', flag it") would generate noise. The instruction asks agents to use judgment — to flag when something genuinely seems emotionally charged, not when a keyword appears.
+
+### 3. English-only routing
+
+The original crew included trigger phrases in English, Italian, French, Spanish, German, Portuguese, and Japanese in every agent's description. This fork removes the multilingual triggers and uses English-only routing.
+
+**Why:** Claude Code already handles multilingual input natively. When a user writes in Italian, Claude understands it and routes to the correct agent based on intent, not keyword matching. The multilingual trigger lists added complexity to the routing table without improving accuracy — and in some cases created false activations when trigger phrases overlapped across languages.
+
+**What's preserved:** Agents still respond in whatever language the user writes in. The change only affects routing, not output. A user writing in French will still get French responses — the agent just doesn't need French keywords in its description to be found.
+
+### 4. Librarian agent consistency check
+
+The Librarian now cross-checks four sources during vault health audits:
+
+- `.claude/agents/` folder
+- `.claude/skills/` folder
+- `CLAUDE.md` routing table
+- `references/agents.md` documentation
+
+It catches stale agent folders, mismatched names/descriptions, and missing entries — a problem that emerged naturally during development when agents were renamed (e.g., `food-coach` became `wellness-coach`).
+
+**Why:** When agents get renamed or replaced, it's easy for references to go stale in one of the four places they're registered. This check prevents the kind of silent inconsistency that causes routing failures or confusing behaviour.
+
+---
+
+## The Crew
+
+| # | Agent | Role | Superpower |
+|---|-------|------|------------|
+| 1 | **Architect** | Vault Structure & Setup | Designs your entire vault, runs onboarding, sets the rules everyone follows |
+| 2 | **Scribe** | Text Capture | Transforms your messy, typo-filled, stream-of-consciousness dumps into clean notes |
+| 3 | **Sorter** | Inbox Triage | Empties your inbox every evening and routes every note to its perfect home |
+| 4 | **Seeker** | Search & Intelligence | Finds anything in your vault, synthesizes answers across notes with citations |
+| 5 | **Connector** | Knowledge Graph | Discovers hidden links between your notes, even ones you'd never think of |
+| 6 | **Librarian** | Vault Maintenance | Weekly health checks, deduplication, broken link repair, agent consistency checks |
+| 7 | **Transcriber** | Audio & Meetings | Turns recordings and transcripts into rich, structured meeting notes |
+| 8 | **Postman** | Email & Calendar | Bridges Gmail and Google Calendar with your vault: deadline radar, meeting prep |
+| 9 | **Wellness Coach** | Physical Wellness | Food, sleep, exercise, recovery, energy management. ADHD-aware, surgery-aware |
+| 10 | **Containing Mind** | Emotional Companion | Psychoanalytically-informed containment, pattern observation, reflective listening |
+
+> **The agents talk to each other.** When the Transcriber processes a meeting, it alerts the Sorter. When the Postman finds overwhelming deadlines, it flags the Containing Mind. When the Wellness Coach notices emotional eating patterns, it leaves a message for the Containing Mind. It's a crew, not a collection of isolated tools.
 
 ---
 
@@ -43,6 +118,9 @@ The system works in any language. You shouldn't need to think in English to mana
 **3. The agents talk to each other.**
 When the transcription agent processes a meeting, it flags follow-up tasks for the inbox manager. It's a crew, not a collection of isolated tools.
 
+**4. It holds the whole person, not just the productivity.**
+The Wellness Coach and Containing Mind mean this isn't just a knowledge management system. It tracks your physical health, notices emotional patterns across your vault, and offers a reflective space when things get heavy. With clear boundaries — these agents are not therapy, not medical advice, and they say so explicitly.
+
 ---
 
 ## Who this is for
@@ -51,6 +129,8 @@ When the transcription agent processes a meeting, it flags follow-up tasks for t
 - Anyone with **brain fog**, or just an overloaded working memory
 - Non-native English speakers who want a system that works in their language
 - Anyone who's tried Obsidian before and gave up because it felt like a second job
+- Anyone managing **chronic stress, ADHD, or burnout** alongside their work
+- Anyone who wants their organisational system to notice when they're struggling, not just when they're productive
 
 If you've ever thought *"I need to get organized, but I'm too exhausted to get organized"*, this is for you.
 
@@ -63,27 +143,12 @@ If you've ever thought *"I need to get organized, but I'm too exhausted to get o
 Key points:
 
 - **This software is for personal use on your own data.** You are responsible for GDPR/CCPA compliance if you process third-party data (e.g., emails containing other people's information).
+- **The Wellness Coach is not a dietitian, personal trainer, or medical professional.** It offers general wellness support. Consult qualified professionals for personalised plans.
+- **The Containing Mind is not therapy.** It is a reflective companion informed by psychoanalytic thinking. It is designed to complement, not replace, professional mental health support.
 - **No warranty.** Provided "as is". Back up your vault. The author accepts no liability.
 - **No responsibility for forks or misuse.** This is a personal productivity tool. Malicious repurposing is explicitly condemned.
 
 > **By using this software, you agree to the [Terms of Use](TERMS_OF_USE.md).** During onboarding, the Architect will ask you to explicitly accept these terms before proceeding.
-
----
-
-## The Crew
-
-| # | Agent | Role | Superpower |
-|---|-------|------|------------|
-| 1 | **Architect** | Vault Structure & Setup | Designs your entire vault, runs onboarding, sets the rules everyone follows |
-| 2 | **Scribe** | Text Capture | Transforms your messy, typo-filled, stream-of-consciousness dumps into clean notes |
-| 3 | **Sorter** | Inbox Triage | Empties your inbox every evening and routes every note to its perfect home |
-| 4 | **Seeker** | Search & Intelligence | Finds anything in your vault, synthesizes answers across notes with citations |
-| 5 | **Connector** | Knowledge Graph | Discovers hidden links between your notes, even ones you'd never think of |
-| 6 | **Librarian** | Vault Maintenance | Weekly health checks, deduplication, broken link repair, growth analytics |
-| 7 | **Transcriber** | Audio & Meetings | Turns recordings and transcripts into rich, structured meeting notes |
-| 8 | **Postman** | Email & Calendar | Bridges Gmail and Google Calendar with your vault: deadline radar, meeting prep |
-
-> **The agents talk to each other.** When the Transcriber processes a meeting, it alerts the Sorter. When the Postman finds emails about a new project, it tells the Architect to create a folder. It's a crew, not a collection of isolated tools.
 
 ---
 
@@ -121,6 +186,11 @@ graph TB
             Transcriber["Transcriber\nAudio & Meetings"]
             Postman["Postman\nEmail & Calendar"]
         end
+
+        subgraph Wellness["Wellness"]
+            WellnessCoach["Wellness Coach\nBody & Energy"]
+            ContainingMind["Containing Mind\nEmotional Companion"]
+        end
     end
 
     MessageBoard[("agent-messages.md\n(shared message board)")]
@@ -143,6 +213,7 @@ graph TB
     style MessageBoard fill:#f59e0b,stroke:#d97706,color:#fff
     style Core fill:#e0e7ff,stroke:#818cf8
     style External fill:#dbeafe,stroke:#60a5fa
+    style Wellness fill:#fce7f3,stroke:#ec4899
 ```
 
 ### Agent Communication Flow
@@ -154,6 +225,7 @@ sequenceDiagram
     participant T as Transcriber
     participant S as Sorter
     participant P as Postman
+    participant CM as Containing Mind
     participant MB as agent-messages.md
 
     U->>C: "Process my meeting recording"
@@ -161,12 +233,17 @@ sequenceDiagram
     T->>T: transcribes & creates note
     T->>MB: "new project mentioned → Architect"
     T->>MB: "follow-up tasks → Sorter"
+    T->>MB: "emotional conflict detected → Containing Mind"
 
     U->>C: "Check my email"
     C->>P: activates
     P->>P: scans Gmail, saves notes
     P->>MB: "deadline found → Sorter"
-    P->>MB: "new project contact → Architect"
+    P->>MB: "overwhelming volume → Containing Mind"
+
+    U->>C: "I can't sleep"
+    C->>CM: activates (anxiety cause)
+    Note over CM: Reflective listening,<br/>pattern observation
 
     Note over S,P: Next time these agents run,<br/>they check the message board<br/>and act on pending messages
 ```
@@ -212,7 +289,7 @@ Open Obsidian and create a new vault (or use an existing one).
 
 ```bash
 cd /path/to/your-vault
-git clone https://github.com/gnekt/My-Brain-Is-Full-Crew.git
+git clone https://github.com/lukerow/My-Brain-Is-Full-Crew.git
 ```
 
 ### 3. Run the installer
@@ -240,7 +317,15 @@ The **Architect** will start a friendly onboarding conversation:
 
 After onboarding, the Architect creates your entire vault folder structure, saves your profile, leaves you a welcome note, and you're ready to go.
 
-### 5. Start using it
+### 5. Jumpstart with your Claude history
+
+If you've been using Claude for a while, you already have a goldmine of context sitting in your past conversations. Claude has excellent memory and search across your chat history. One of the best ways to populate your vault quickly is to ask Claude to **search its own conversation history** and import the useful stuff. Just say something like:
+
+> *"Search our past chats for anything about [project/person/topic] and save it as notes"*
+
+The Scribe will pull out the important information, structure it, and file it into your vault. It's like giving the crew a head start — all that context you've already shared with Claude doesn't have to be lost.
+
+### 6. Start using it
 
 | You say | What happens |
 |---------|-------------|
@@ -250,6 +335,8 @@ After onboarding, the Architect creates your entire vault folder structure, save
 | *"Check my email"* | **Postman** scans Gmail, saves important emails, flags deadlines |
 | *"Weekly review"* | **Librarian** runs a full vault audit: broken links, duplicates, health score |
 | *"Find connections for my latest note"* | **Connector** discovers hidden links to other notes in your vault |
+| *"What should I cook this week?"* | **Wellness Coach** builds a meal plan based on your dietary preferences |
+| *"I feel overwhelmed"* | **Containing Mind** offers a reflective space to think about what's underneath |
 
 ---
 
@@ -286,6 +373,8 @@ Agents coordinate through a shared message board at `Meta/agent-messages.md`. Th
 - The **Postman** finds emails about deadlines and leaves a message for the **Sorter**
 - The **Connector** finds orphan notes and asks the **Librarian** to investigate
 - The **Sorter** finds notes that belong to a new area and flags it for the **Architect**
+- The **Wellness Coach** notices emotional eating patterns and flags the **Containing Mind**
+- **Any agent** that detects emotional distress in user content can flag the **Containing Mind**
 
 No agent works in isolation. The crew is greater than the sum of its parts.
 
@@ -326,8 +415,8 @@ Only changed files are updated. Your vault notes are never touched.
 ## Project structure
 
 ```
-My-Brain-Is-Full-Crew/               ← cloned inside your vault
-├── agents/                          The 8 subagents
+My-Brain-Is-Full-Crew/               <- cloned inside your vault
+├── agents/                          The 10 subagents
 │   ├── architect.md                   Vault setup & onboarding
 │   ├── scribe.md                      Text capture & note creation
 │   ├── sorter.md                      Inbox triage & filing
@@ -335,7 +424,9 @@ My-Brain-Is-Full-Crew/               ← cloned inside your vault
 │   ├── connector.md                   Knowledge graph & link analysis
 │   ├── librarian.md                   Vault health & maintenance
 │   ├── transcriber.md                 Audio & meeting transcription
-│   └── postman.md                     Email & calendar integration
+│   ├── postman.md                     Email & calendar integration
+│   ├── wellness-coach.md              Physical wellness & energy
+│   └── containing-mind.md             Emotional companion (Opus)
 ├── skills/                          Auto-generated skills (for Cowork/Desktop)
 │   └── {name}/SKILL.md               One per agent, same content
 ├── references/                      Shared agent documentation
@@ -359,12 +450,12 @@ After running `launchme.sh`, your vault looks like:
 ```
 your-vault/
 ├── .claude/
-│   ├── agents/          ← crew subagents (Claude Code CLI)
-│   ├── skills/          ← crew skills (Claude Code Desktop / Cowork)
-│   └── references/      ← shared docs
-├── CLAUDE.md            ← project instructions
-├── .mcp.json            ← Gmail + Calendar (if enabled)
-├── My-Brain-Is-Full-Crew/  ← the repo (for updates)
+│   ├── agents/          <- crew subagents (Claude Code CLI)
+│   ├── skills/          <- crew skills (Claude Code Desktop / Cowork)
+│   └── references/      <- shared docs
+├── CLAUDE.md            <- project instructions
+├── .mcp.json            <- Gmail + Calendar (if enabled)
+├── My-Brain-Is-Full-Crew/  <- the repo (for updates)
 └── ... your Obsidian notes
 ```
 
@@ -398,6 +489,13 @@ The Crew is designed for people who are overwhelmed, not for people who enjoy or
 - **Agents handle the boring stuff**: filing, linking, maintaining
 - **Any language, any time**: your brain shouldn't have to switch languages to stay organized
 - **Conservative by default**: agents never delete, always archive. They ask before making big decisions.
+- **The whole person matters**: productivity without wellness is just organised burnout.
+
+---
+
+## Upstream
+
+This fork is based on [gnekt/My-Brain-Is-Full-Crew](https://github.com/gnekt/My-Brain-Is-Full-Crew). The original project is excellent — well-designed, well-documented, and genuinely helpful. This fork doesn't replace it; it extends it in a specific direction (holistic wellness + emotional infrastructure) that reflects one user's needs. If the upstream author finds any of these ideas useful, they're welcome to pull them in.
 
 ---
 
