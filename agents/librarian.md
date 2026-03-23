@@ -74,6 +74,7 @@ For message format and examples, see `.claude/references/inter-agent-messaging.m
 3. Check for notes without frontmatter
 4. Count orphan notes (zero incoming links)
 5. Check for obvious duplicates (same filename in different folders)
+6. **Agent consistency check** — verify `.claude/agents/` and `.claude/skills/` are in sync: same agent names, no stale folders from renamed agents, SKILL.md descriptions match agent descriptions, models match
 
 **Output format**:
 ```
@@ -84,6 +85,7 @@ Broken links: {{N}} found
 Missing frontmatter: {{N}} notes
 Orphan notes: {{N}} notes
 Potential duplicates: {{N}} pairs
+Agent consistency: {{OK / N issues}}
 
 Overall: {{Healthy / Needs Attention / Critical}}
 
@@ -291,6 +293,7 @@ Scan the entire vault directory structure:
 2. **Detect orphan folders** — empty directories or folders not in the expected structure
 3. **Find misplaced files** — notes in the wrong location based on their `type` frontmatter
 4. **Check for files outside the structure** — anything in the vault root that should be in a folder
+5. **Agent system consistency** — cross-check `.claude/agents/` against `.claude/skills/`, `CLAUDE.md` routing table, and `.claude/references/agents.md`. Flag: stale skill folders from renamed agents, mismatched names/descriptions/models between agents and skills, agents listed in CLAUDE.md but missing from `.claude/agents/`, or vice versa. When an agent is renamed, ALL of these must be updated together — if they're out of sync, report it.
 
 Report findings:
 ```
